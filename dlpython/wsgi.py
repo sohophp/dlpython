@@ -13,7 +13,7 @@ import sys
 from django.core.wsgi import get_wsgi_application
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_DIR)
-
+sys.path.insert(1,'/usr/local/lib/python3.8/site-packages')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dlpython.settings')
 
 application = get_wsgi_application()
