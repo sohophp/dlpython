@@ -14,5 +14,10 @@ import sys
 # sys.path.insert(0, PROJECT_DIR)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dlpython.settings')
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+try:
+    from django.core.wsgi import get_wsgi_application
+except:
+    print("please install django: python -m pip install django")
+    exit()
+else:
+    application = get_wsgi_application()
