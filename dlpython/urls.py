@@ -20,11 +20,11 @@ from django.conf.urls.i18n import i18n_patterns
 from django.views.static import serve
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
+    # re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATICFILES_DIRS}),
 ]
 
 urlpatterns += i18n_patterns(
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('', include('downloader.urls')),
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATICFILES_DIRS}),
 )

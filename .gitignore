@@ -1,5 +1,33 @@
-.idea
-.vscode
-.history
+
+#project
+local_settings.py
+*.sqlite3
+# npm
+/node_modules/
+# system ignore
 .DS_Store
-/node_modules
+Thumbs.db
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+#Virtual Studio Code
+.vscode/
+.vs/
+.history/
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Python:
+_pycache_/
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+# SASS
+.sass-cache/
+# Others
+*.[Cc]ache
+bower_components/

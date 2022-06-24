@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
 from django.utils.translation import gettext_lazy as _
 import os
 from pathlib import Path
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-r%=$79tljb2)a5ci5q#t6as%ch8d==9b%#1@o^vve3m9b*vi_1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dl.local','dl.sohophp.app','localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -131,8 +132,19 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+    # print("debug-%s" % str(DEBUG))
+    # print("loaded...")
+except:
+    # print("debug:%s" % str(DEBUG))
+    pass
