@@ -20,12 +20,46 @@ $ python3 --version
 $ python3 -m pip install --user virtualenv
 # 创建python3.8的虚拟环境，因为现在 python3 --version 是3.8
 $ virtualenv ~/.local/lib/venvs/3.8
+# 启用虚拟环境
+$ source ~/.local/lib/venvs/3.8/bin/activate
+# 如果要退出虚拟环境
+$ deactivate
+
+# 安装django
+$ python3 -m pip install django
 
 ```
 
 ### 安装 mod_wsgi
+
 ``` bash
-$ sudo apt install libapache2-mod-wsgi-py3
+# $ sudo apt install libapache2-mod-wsgi-py3
+# 文档网址
+# https://modwsgi.readthedocs.io/en/master/user-guides/quick-installation-guide.html#cleaning-up-after-build
+# 
+# https://github.com/GrahamDumpleton/mod_wsgi/releases
+# 下载最新版
+$ wget https://github.com/GrahamDumpleton/mod_wsgi/archive/refs/tags/4.9.2.tar.gz
+# 解压缩
+$ tar -zxvf 4.9.2.tar.gz
+$ cd mod_wsgi-4.9.2/
+# 安装 apache2-dev
+$ sudo apt install apache2-dev
+# 查看 apxs 位置
+$ which apxs
+#> /usr/bin/apxs
+# 查看 python3 位置
+$ which python3
+#> /usr/bin/python3
+# 配置安装环境
+$ ./configure --with-apxs=/usr/bin/apxs --with-python=/usr/bin/python3
+# 编译
+$ make
+# 安装
+$ sudo make install
+# apache 启用 mod_wsgi
+# LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
+$ sudo a2enmod wsgi
 
 ```
 
@@ -33,7 +67,7 @@ $ sudo apt install libapache2-mod-wsgi-py3
 
 # 安装 mod_wsgi
 $ sudo apt install apache2-dev
-# https://modwsgi.readthedocs.io/en/master/user-guides/quick-installation-guide.html#cleaning-up-after-build
+
 # LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
 
 $ sudo apt install python3-pip

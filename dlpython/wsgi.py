@@ -17,7 +17,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dlpython.settings')
 try:
     from django.core.wsgi import get_wsgi_application
 except:
-    print("please install django: python -m pip install django")
-    exit()
+    raise ModuleNotFoundError('please install django: python -m pip install django') 
 else:
     application = get_wsgi_application()
