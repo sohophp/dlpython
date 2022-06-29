@@ -64,7 +64,7 @@
                         </span>
             </button>
 
-            <form class="form-inline ml-3-md " action="{% url 'set_language' %}" method="post">
+            {% comment %} <form class="form-inline ml-3-md " action="{% url 'set_language' %}" method="post">
                 {% csrf_token %} 
                 <div class="input-group px-3">
                     <select name="language" class="form-control btn" onchange="this.form.submit()">
@@ -80,7 +80,7 @@
                     </select>
                     
                 </div>
-            </form>
+            </form> {% endcomment %}
 
         </div>
 

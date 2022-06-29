@@ -20,6 +20,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.views.static import serve
 from django.conf.urls.static import static
 urlpatterns = [
+    path('', include('downloader.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     re_path(r'^static/(?P<path>.*)$', serve,
             {'document_root': settings.STATIC_ROOT}, name='static'),
@@ -30,5 +31,5 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('', include('downloader.urls')),
+    # path('', include('downloader.urls')),
 )
