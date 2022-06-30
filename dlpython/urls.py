@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('downloader.urls')),
     # path('i18n/', include('django.conf.urls.i18n')),
+    path('admin/', admin.site.urls),
     re_path(r'^static/(?P<path>.*)$', serve,
             {'document_root': settings.STATIC_ROOT}, name='static'),
     re_path(r'^medias/(?P<path>.*)$', serve,
